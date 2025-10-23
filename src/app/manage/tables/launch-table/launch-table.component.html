@@ -1,0 +1,59 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <h4>
+        <button mat-button (click)="navigateToLaunchpads()">Launchpads</button>
+        &nbsp;⏵&nbsp;Launchpad “{{launchpadName}}”&nbsp;⏵&nbsp;Launches
+      </h4>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-elevation-z2">
+      <div class="table-toolbar"
+        style="display:flex; align-items:center; justify-content:space-between; padding:8px 16px;">
+        <mat-form-field appearance="outline" style="width:320px;">
+          <mat-label>Search by name</mat-label>
+          <input matInput type="text" [(ngModel)]="filterText" (ngModelChange)="applyFilter($event)" placeholder="" />
+          @if (filterText) {
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="applyFilter('')">
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <table mat-table class="full-width-table" matSort aria-label="Items">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="wikipedia">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Wikipedia</th>
+          <td mat-cell *matCellDef="let row">
+            <a [href]="row.links?.wikipedia" target="_blank" rel="noopener noreferrer">
+              {{ getWikipediaTitle(row.links?.wikipedia) }}
+            </a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="success">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Success</th>
+          <td mat-cell *matCellDef="let row">{{row.success}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator #paginator [length]="launchesLength" [pageIndex]="0" [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 20, 50, 100, 200]" aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined">
+  <mat-card-actions align="end">
+  </mat-card-actions>
+</mat-card>

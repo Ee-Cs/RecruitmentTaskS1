@@ -1,0 +1,22 @@
+{
+   "query": {
+   },
+   "options": {
+      "select": {
+         "name": 1
+      },
+      "page": 1,
+      "limit": 1,
+      "populate": [
+         {
+            "path": "links",
+            "limit": 1,
+            "populate": [
+               {
+                  "path":"qwerty"
+               }
+            ]
+         }
+      ]
+   }
+}

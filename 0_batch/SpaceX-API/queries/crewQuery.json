@@ -1,0 +1,12 @@
+{
+   "query": {
+   },
+   "options": {
+      "select": {
+         "name": 1,
+         "image": 1
+      },
+      "page": 1,
+      "limit": 2
+   }
+}

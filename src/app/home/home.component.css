@@ -1,0 +1,39 @@
+.home-card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.home-card-col {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  align-items: center;
+}
+
+.home-card-col:last-child {
+  margin-left: 200px;
+  margin-bottom: 15px;
+}
+
+.home-title {
+  font-size: 1.75rem;
+  min-height: 40px;
+}
+
+.repository-type-label {
+  padding-right: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: 0 1 auto;
+}
+
+button[matFab][extended] {
+  white-space: nowrap;
+  min-width: 260px;
+}

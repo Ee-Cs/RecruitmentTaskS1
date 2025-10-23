@@ -1,0 +1,21 @@
+{
+   "query": {
+   },
+   "options": {
+      "select": {
+         "name": 1,
+         "images": 1
+      },
+      "page": 1,
+      "limit": 2
+   },
+   "populate": [
+      {
+         "path": "images",
+         "select": {
+            "large": 1
+         },
+         "limit": 1
+      }
+   ]
+}

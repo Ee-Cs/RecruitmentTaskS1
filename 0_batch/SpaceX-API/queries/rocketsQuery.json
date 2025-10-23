@@ -1,0 +1,18 @@
+{
+   "query": {
+   },
+   "options": {
+      "select": {
+         "name": 1,
+         "flickr_images": 1
+      },
+      "populate": [
+         {
+            "path": "flickr_images",
+            "limit": 1
+         }
+      ],
+      "page": 1,
+      "limit": 2
+   }
+}
